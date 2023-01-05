@@ -1,13 +1,40 @@
-import { ABOUT_PAGE_LINK, LINK_HOME_PAGE, HOME_PAGE_LINK, CREATE_PIC_PAGE_LINK, LOGIN_PAGE_LINK, SLIDER_PREV_BTN, SLIDER_NEXT_BTN } from "./services/domService.js";
+import {
+  ABOUT_PAGE_LINK,
+  LINK_HOME_PAGE,
+  HOME_PAGE_LINK,
+  CREATE_PIC_PAGE_LINK,
+  LOGIN_PAGE_LINK,
+  SLIDER_PREV_BTN,
+  SLIDER_NEXT_BTN,
+  URL_CREATE_PIC_FIELD,
+  URL_CREATE_PIC_ERROR,
+  SUBMIT_CREATE_PIC_BTN,
+  CANCEL_BTN,
+  ALT_CREATE_PIC_FIELD,
+  CREDIT_CREATE_PIC_FIELD,
+  PRICE_CREATE_PIC_FIELD,
+  PRICE_CREATE_PIC_ERROR,
+  ALT_CREATE_PIC_ERROR,
+  CREDIT_CREATE_PIC_ERROR,
+} from "./services/domService.js";
+
+import Picture from "./models/PictureModel.js";
+import useForm from "./services/formService.js";
+
 import PAGES from "./models/pageModel.js";
+import User from "./models/UserModel.js";
+
 import { onChangePage } from "./routes/router.js";
 import { renderSlider as render } from "./services/renderSlider.js";
-import { setCounter } from "./services/picService.js";
+import { handleCancelCreatePic, handleCreatePic, onCreateNewPic, setCounter } from "./services/picService.js";
+
 import initialData from "./initialData/initialData.js";
 
 //#region הגדרת משתנים גלובליים
-let { pictures } = initialData();
+let { pictures, users } = initialData();
 console.log(pictures);
+console.log(users);
+
 let counter = 0;
 
 //#endregion
@@ -15,7 +42,7 @@ let counter = 0;
 // אתחול הצגה ראשונית
 render(pictures);
 
-//slider logic
+//#region slider logic
 const onChangeSliderPic = (controller) => {
   counter = setCounter(pictures, counter, controller);
   render(pictures, counter);
@@ -27,12 +54,22 @@ const onChangeSliderPic = (controller) => {
 // ניתוב דפים
 HOME_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.HOME));
 ABOUT_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.ABOUT));
-CREATE_PIC_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.CREATE_PIC));
+CREATE_PIC_PAGE_LINK.addEventListener("click", () => handleCreatePic());
 LOGIN_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.LOGIN));
 LINK_HOME_PAGE.addEventListener("click", () => onChangePage(PAGES.HOME));
 
 // מצגת תמונות
 SLIDER_PREV_BTN.addEventListener("click", () => onChangeSliderPic("prev"));
 SLIDER_NEXT_BTN.addEventListener("click", () => onChangeSliderPic("next"));
+
+//#endregion
+
+//#region Create Picture
+
+export const handleSubmitNewPic = () => {
+  pictures = onCreateNewPic(pictures);
+  console.log(pictures);
+  handleCancelCreatePic();
+};
 
 //#endregion
