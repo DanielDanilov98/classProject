@@ -27,12 +27,16 @@ export const handleCreatePic = () => {
   // להרשם לאירועי הזנת המידע בשדות
   createPicFromFieldsListeners();
 
-  CANCEL_BTN.addEventListener("click", () => {
+  const cancelEH = () => {
     const conf = confirm("Are you sure you want to cancel?");
     if (conf) handleCancelCreatePic();
-  });
+  };
 
-  SUBMIT_CREATE_PIC_BTN.addEventListener("click", () => handleSubmitNewPic());
+  CANCEL_BTN.removeEventListener("click", cancelEH);
+  CANCEL_BTN.addEventListener("click", cancelEH);
+
+  SUBMIT_CREATE_PIC_BTN.removeEventListener("click", handleSubmitNewPic);
+  SUBMIT_CREATE_PIC_BTN.addEventListener("click", handleSubmitNewPic);
 };
 
 export const createPicFromFieldsListeners = () => {
@@ -69,6 +73,7 @@ export const createPicFromFieldsListeners = () => {
     onChangeInputField(schema, element, SUBMIT_CREATE_PIC_BTN);
   });
 };
+
 export const handleCancelCreatePic = () => {
   const { onClearFormFields } = useForm();
   const fields = [URL_CREATE_PIC_FIELD, ALT_CREATE_PIC_FIELD, CREDIT_CREATE_PIC_FIELD, PRICE_CREATE_PIC_FIELD];
@@ -76,6 +81,7 @@ export const handleCancelCreatePic = () => {
   onClearFormFields(SUBMIT_CREATE_PIC_BTN, fields, errorSpans);
   onChangePage(PAGES.HOME);
 };
+
 export const onCreateNewPic = (pictures) => {
   try {
     let newArray = [...pictures];
