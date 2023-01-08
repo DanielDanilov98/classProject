@@ -1,4 +1,4 @@
-import { ABOUT_PAGE, ERROR_404_PAGE, HOME_PAGE, CREATE_PIC_PAGE, LOGIN_PAGE } from "../services/domService.js";
+import { ABOUT_PAGE, ERROR_404_PAGE, HOME_PAGE, CREATE_PIC_PAGE, LOGIN_PAGE, SIGN_UP_PAGE } from "../services/domService.js";
 import PAGES from "../models/pageModel.js";
 
 const pageToDOMMap = [
@@ -6,6 +6,7 @@ const pageToDOMMap = [
     page: PAGES.HOME,
     dom: HOME_PAGE,
   },
+
   {
     page: PAGES.ABOUT,
     dom: ABOUT_PAGE,
@@ -17,6 +18,10 @@ const pageToDOMMap = [
   {
     page: PAGES.LOGIN,
     dom: LOGIN_PAGE,
+  },
+  {
+    page: PAGES.SIGNUP,
+    dom: SIGN_UP_PAGE,
   },
   {
     page: PAGES.ERROR_404,

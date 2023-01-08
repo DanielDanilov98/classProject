@@ -4,6 +4,7 @@ import {
   HOME_PAGE_LINK,
   CREATE_PIC_PAGE_LINK,
   LOGIN_PAGE_LINK,
+  SIGNUP_PAGE_LINK,
   SLIDER_PREV_BTN,
   SLIDER_NEXT_BTN,
   URL_CREATE_PIC_FIELD,
@@ -56,6 +57,7 @@ HOME_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.HOME));
 ABOUT_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.ABOUT));
 CREATE_PIC_PAGE_LINK.addEventListener("click", () => handleCreatePic());
 LOGIN_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.LOGIN));
+SIGNUP_PAGE_LINK.addEventListener("click", () => onChangePage(PAGES.SIGNUP));
 LINK_HOME_PAGE.addEventListener("click", () => onChangePage(PAGES.HOME));
 
 // מצגת תמונות
