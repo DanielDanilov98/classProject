@@ -107,6 +107,24 @@ export const NO_DATA_CONTAINER = document.querySelector("#no-data-container");
 export const DATA_CONTAINER = document.querySelector("#data-container");
 export const TABLE_DISPLAY_MODE = document.querySelector("#table-display");
 export const SLIDER_DISPLAY_MODE = document.querySelector("#slider-display");
+export const TABLE_BODY = document.querySelector("#tbody");
+export const CARDS_CONTAINER = document.querySelector("#cards-display");
+export const CARDS_ROW = document.querySelector("#cards");
 
 export const LINK_TO_CREATE_PIC_PAGE = document.querySelector("#goto-create-pic-page-link");
+//#endregion
+
+//#region edit pic form
+export const EDIT_PIC_PAGE = document.querySelector("#edit-pic-page");
+export const URL_EDIT_PIC_FIELD = document.querySelector("#url-edit-pic-field");
+export const URL_EDIT_PIC_ERROR = document.querySelector("#url-edit-pic-error-span");
+export const ALT_EDIT_PIC_FIELD = document.querySelector("#alt-edit-pic-field");
+export const ALT_EDIT_PIC_ERROR = document.querySelector("#alt-edit-pic-error-span");
+export const CREDIT_EDIT_PIC_FIELD = document.querySelector("#credit-edit-pic-field");
+export const CREDIT_EDIT_PIC_ERROR = document.querySelector("#credit-edit-pic-error-span");
+export const PRICE_EDIT_PIC_FIELD = document.querySelector("#price-edit-pic-field");
+export const PRICE_EDIT_PIC_ERROR = document.querySelector("#price-edit-pic-error-span");
+export const SUBMIT_EDIT_PIC_BTN = document.querySelector("#submit-edit-pic-btn");
+export const CANCELֹ_EDIT_BTN = document.querySelector("#cancel-edit-pic-btn");
+export const EDIT_IMAGE_DISPLAY = document.querySelector("#edit-image-display");
 //#endregion

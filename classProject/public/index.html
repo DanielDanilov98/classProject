@@ -113,7 +113,29 @@
           </div>
 
           <!-- תצוגת טבלה -->
-          <div id="table-display" class="d-dlock">table display</div>
+          <div id="table-display" class="d-dlock">
+            <table class="table container">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>image</th>
+                  <th>Pic</th>
+                  <th>Title</th>
+                  <th>Credit</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+
+          <!-- כרטיסים -->
+          <div id="cards-display" class="d-none">
+            <div class="container">
+              <div id="cards" class="row"></div>
+            </div>
+          </div>
         </div>
 
         <!-- תצוגת אין מידע -->
@@ -313,6 +335,55 @@
               <input type="button" id="cancel-signup-user-btn" value="Cancel" class="btn btn-outline-danger col-12 mb-2" />
             </form>
           </div>
+        </div>
+      </div>
+
+      <!-- דף ערית תמונה -->
+      <div id="edit-pic-page" class="d-block">
+        <!-- כותרת עריכת תמונה -->
+        <div class="center mt-4">
+          <div class="col-12 col-md-10 col-xl-8">
+            <h1 id="login-title" class="text-center display-4">EDIT PIC PAGE</h1>
+            <h2 id="login-subtitle" class="fs-5">Here you can edit the selected picture</h2>
+            <hr />
+          </div>
+        </div>
+
+        <div class="center">
+          <div class="form col-12 col-md-10 col-xl-8 p2 rounded mb-2">
+            <img id="edit-image-display" src="" alt="" class="img-fluid" />
+          </div>
+        </div>
+        <div class="center">
+          <form class="col-12 col-md-10 col-xl-8 p2 rounded">
+            <div>
+              <div class="mb-3">
+                <label for="url-edit-pic-field" class="form-label">Url</label>
+                <input type="text" class="form-control mb-2" name="url" id="url-edit-pic-field" minlength="2" />
+                <span id="url-edit-pic-error-span" class="text-danger"></span>
+              </div>
+            </div>
+            <div>
+              <div class="mb-3">
+                <label for="alt-edit-pic-field" class="form-label">Alt</label>
+                <input type="text" class="form-control mb-2" name="alt" id="alt-edit-pic-field" />
+                <span id="alt-edit-pic-error-span" class="text-danger"></span>
+              </div>
+            </div>
+            <div>
+              <label for="credit-edit-pic-field" class="form-label">Credit</label>
+              <input type="text" class="form-control mb-2" name="credit" id="credit-edit-pic-field" />
+              <span id="credit-edit-pic-error-span" class="text-danger"></span>
+            </div>
+            <div>
+              <label for="price-edit-pic-field" class="form-label">Price</label>
+              <input type="number" class="form-control mb-2" name="price" id="price-edit-pic-field" />
+
+              <span id="price-edit-pic-error-span" class="text-danger"></span>
+            </div>
+            <input id="submit-edit-pic-btn" class="btn btn-primary col-12 mb-2" type="button" value="Submit" disabled />
+            <input id="cancel-edit-pic-btn" class="btn btn-dander col-12 mb-2" type="button" value="Cancel" />
+          </form>
         </div>
       </div>
 

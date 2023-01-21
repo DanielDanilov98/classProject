@@ -38,7 +38,7 @@ const initialData = () => {
         phone: "050-0000000",
         email: "user@gmail.com",
         password: "Aa1234!",
-        isBusiness: false,
+        isBusiness: true,
       },
       {
         name: { first: "bUsiness", last: "user" },
@@ -54,7 +54,7 @@ const initialData = () => {
         email: "business@gmail.com",
         password: "Aa1234!",
         isBusiness: true,
-        isAdmin: false,
+        isAdmin: true,
       },
       {
         name: { first: "admin", last: "user" },
