@@ -111,6 +111,9 @@ export const TABLE_BODY = document.querySelector("#tbody");
 export const CARDS_CONTAINER = document.querySelector("#cards-display");
 export const CARDS_ROW = document.querySelector("#cards");
 
+export const SEARCHBAR_CONTAINER = document.querySelector("#search-bar-container");
+export const SEARCH_BAR = document.querySelector("#search-input");
+
 export const LINK_TO_CREATE_PIC_PAGE = document.querySelector("#goto-create-pic-page-link");
 //#endregion
 

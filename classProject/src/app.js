@@ -1,4 +1,4 @@
-import { ABOUT_PAGE_LINK, LINK_HOME_PAGE, HOME_PAGE_LINK, CREATE_PIC_PAGE_LINK, LOGIN_PAGE_LINK, SLIDER_PREV_BTN, SLIDER_NEXT_BTN, SIGNUP_PAGE_LINK, TABLE_ICON, SLIDER_ICON, LINK_TO_CREATE_PIC_PAGE, CARDS_ICON } from "./services/domService.js";
+import { ABOUT_PAGE_LINK, LINK_HOME_PAGE, HOME_PAGE_LINK, CREATE_PIC_PAGE_LINK, LOGIN_PAGE_LINK, SLIDER_PREV_BTN, SLIDER_NEXT_BTN, SIGNUP_PAGE_LINK, TABLE_ICON, SLIDER_ICON, LINK_TO_CREATE_PIC_PAGE, CARDS_ICON, SORT_DOWN_ICON, SORT_UP_ICON, SEARCH_BAR } from "./services/domService.js";
 
 import PAGES from "./models/pageModel.js";
 
@@ -10,12 +10,13 @@ import initialData from "./initialData/initialData.js";
 import { handleSignup, onSignupNewUser, handleCancelSignup, handleLogin } from "./services/userService.js";
 import DISPLAY from "./models/displayModel.js";
 import { handleDisplayMode } from "./services/displayModeService.js";
+import { filterArrayOfObjectsByTerm, sortArrayOfObject } from "./utils/algoMethods.js";
 
 //#region הגדרת משתנים גלובליים
-let { users } = initialData();
+let { users, pictures } = initialData();
 
 let counter = 0;
-let pictures = [];
+// let pictures = [];
 let display;
 
 //#endregion
@@ -49,6 +50,9 @@ SLIDER_NEXT_BTN?.addEventListener("click", () => onChangeSliderPic("next"));
 // בקרי תצוגה
 TABLE_ICON?.addEventListener("click", () => onChangeDisplayMode(pictures, DISPLAY.TABLE));
 SLIDER_ICON?.addEventListener("click", () => onChangeDisplayMode(pictures, DISPLAY.SLIDER));
+
+// שדה חיפוש
+SEARCH_BAR.addEventListener("input", (e) => handleFilterPictures(e.target.value));
 
 //#endregion
 
@@ -90,6 +94,26 @@ export const onSubmitEditPic = (id) => {
   pictures = onEditPic(pictures, id);
   onCancelEditPic(pictures);
   handleDisplayMode(pictures, DISPLAY.TABLE);
+};
+//#endregion
+
+//#region sorting
+SORT_DOWN_ICON.addEventListener("click", () => {
+  pictures = sortArrayOfObject(pictures, "alt");
+  handleDisplayMode(pictures, DISPLAY.TABLE);
+});
+
+SORT_UP_ICON.addEventListener("click", () => {
+  pictures = sortArrayOfObject(pictures, "alt", true);
+  handleDisplayMode(pictures, DISPLAY.TABLE);
+});
+
+//#endregion
+
+//#region filter pictured
+const handleFilterPictures = (term) => {
+  const newPictures = filterArrayOfObjectsByTerm(term, pictures, "alt");
+  handleDisplayMode(newPictures, DISPLAY.TABLE);
 };
 //#endregion
 

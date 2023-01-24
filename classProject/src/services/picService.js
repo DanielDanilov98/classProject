@@ -27,6 +27,7 @@ import {
   URL_EDIT_PIC_FIELD,
 } from "./domService.js";
 import useForm from "./formService.js";
+import { setItemInLocalStorage } from "./localStorageService.js";
 
 window.pic = {};
 const { onChangeInputField } = useForm();
@@ -224,6 +225,8 @@ export const onCreateNewPic = (pictures) => {
       newArray
     );
     newArray.push(pic);
+
+    setItemInLocalStorage("pictures", JSON.stringify(newArray));
 
     return newArray;
   } catch (error) {
